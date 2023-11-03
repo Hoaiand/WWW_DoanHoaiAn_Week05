@@ -21,4 +21,8 @@ public class SkillService {
         return skillRepository.getById(id);
     }
 
+    public void saveSkill(Skill skill){
+        skillRepository.save(skill);
+    }
+
 }

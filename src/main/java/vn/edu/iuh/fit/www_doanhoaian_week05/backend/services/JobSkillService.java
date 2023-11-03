@@ -20,4 +20,9 @@ public class JobSkillService {
     public List<Job_skill> findAll(){
         return jobSkillRepository.findAll();
     }
+
+
+    public void saveJobSkill(Job_skill jobSkill){
+        jobSkillRepository.save(jobSkill);
+    }
 }
