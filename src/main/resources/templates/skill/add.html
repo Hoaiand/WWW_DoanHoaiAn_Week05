@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Tuyển Dụng - Thêm Kỹ Năng</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Công Ty ABC</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <!-- Add your navigation links here -->
+        </ul>
+    </div>
+</nav>
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <h1>Thêm Kỹ Năng Mới</h1>
+            <form th:action="@{/add-skill}" method="post" >
+                <div class="form-group">
+                    <label for="name">Tên Kỹ Năng</label>
+                    <input type="text" class="form-control" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="desc">Mô Tả</label>
+                    <textarea class="form-control" id="desc" name="desc" rows="3" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="type">Loại Kỹ Năng</label>
+                    <select class="form-control" id="type" name="type" required>
+                        <option value="UNSPECIFIC">UNSPECIFIC</option>
+                        <option value="TECHNICAL_SKILL">TECHNICAL_SKILL</option>
+                        <option value="SOFT_SKILL">SOFT_SKILL</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Thêm Kỹ Năng</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

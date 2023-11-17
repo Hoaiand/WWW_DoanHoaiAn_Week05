@@ -21,8 +21,10 @@ public class Skill {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "skill_id")
     private long id;
+
     @Column(name = "skill_desc", length = 300, nullable = false)
     private String desc;
+
     @Column(name = "skill_name", length = 150, nullable = false)
     private String name;
 

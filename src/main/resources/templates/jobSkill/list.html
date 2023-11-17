@@ -1,0 +1,31 @@
+<!-- src/main/resources/templates/jobSkillList.html -->
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Job Skill List</title>
+</head>
+<body>
+<h2>Job Skill List</h2>
+
+<table border="1">
+    <thead>
+    <tr>
+        <th>Job</th>
+        <th>Skill</th>
+        <th>More Info</th>
+        <th>Skill Level</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="jobSkill : ${jobSkills}">
+        <td th:text="${jobSkill.job.name}"></td>
+        <td th:text="${jobSkill.skill.name}"></td>
+        <td th:text="${jobSkill.more_info}"></td>
+        <td th:text="${#strings.capitalize(jobSkill.skill_level.name())}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

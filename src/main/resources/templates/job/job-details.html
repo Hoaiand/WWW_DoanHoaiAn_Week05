@@ -15,10 +15,10 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
+            <li class="nav-item ">
                 <a class="nav-link" th:href="@{/home}">Trang Chủ <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item active">
                 <a class="nav-link" th:href="@{/job_list}">Tin Tuyển Dụng</a>
             </li>
             </li>
@@ -36,18 +36,25 @@
 </nav>
 
 <div class="container mt-4">
+    <h1>Tin Tuyển Dụng Chi Tiết</h1>
     <div class="row">
         <div class="col-md-8">
-            <h1>Chào mừng bạn đến với Công Ty ABC</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin fringilla ex eu urna aliquam, et ultricies libero scelerisque.</p>
-        </div>
-        <div class="col-md-4">
-            <h3>Tin Tuyển Dụng Mới</h3>
-            <ul th:each="job : ${jobs}">
-                <li><a th:text="${job.name}" th:href="@{/job_list/{id}(id=${job.id})}"></a></li>
+            <ul th:each="job : ${job}">
+                <li>Job name: <a th:text="${job.name}"></a></li>
+                <li>Job Desc: <a th:text="${job.desc}"></a></li>
+
+
+                <ul th:each="jobskill : ${jobSkills}">
+                    <h4>Job Skill</h4>
+                    <li>Job name: <a th:text="${jobskill.more_info}"></a></li>
+                    <li>Job Desc: <a th:text="${jobskill.skill_level}"></a></li>
+                </ul>
+
             </ul>
         </div>
     </div>
+
+    <button type="button" class="btn btn-success"><a class="text-white" th:href="@{/add_jobSkill}">Thêm kĩ năng</a></button>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

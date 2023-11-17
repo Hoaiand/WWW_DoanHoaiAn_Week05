@@ -29,4 +29,5 @@ public class Job_skill {
     @Column(name = "skill_level", nullable = false)
     private SkillLevel skill_level;
 
+
 }

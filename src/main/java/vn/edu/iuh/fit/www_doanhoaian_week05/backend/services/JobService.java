@@ -8,6 +8,7 @@ import vn.edu.iuh.fit.www_doanhoaian_week05.backend.reponsitories.JobRepository;
 
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class JobService {
@@ -20,5 +21,10 @@ public class JobService {
 
     public void save(Job job){
         jobRepository.save(job);
+    }
+
+
+    public Optional<Job> findById(long id){
+        return jobRepository.findById(id);
     }
 }

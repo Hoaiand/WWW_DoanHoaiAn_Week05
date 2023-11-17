@@ -1,0 +1,37 @@
+<!-- src/main/resources/templates/addJobSkillForm.html -->
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Job Skill</title>
+</head>
+<body>
+<h2>Add Job Skill</h2>
+
+<form th:action="@{/jobSkills/add}" th:object="${jobSkill}" method="post">
+    <label for="job">Job:</label>
+    <select th:field="*{job.id}">
+        <option th:each="job : ${jobs}" th:value="${job.id}" th:text="${job.name}"></option>
+    </select><br/>
+
+    <label for="skill">Skill:</label>
+    <select th:field="*{skill.id}">
+        <option th:each="skill : ${skills}" th:value="${skill.id}" th:text="${skill.name}"></option>
+    </select><br/>
+
+    <label for="moreInfo">More Info:</label>
+    <input type="text" th:field="*{more_info}" /><br/>
+
+    <label for="skillLevel">Skill Level:</label>
+    <select th:field="*{skill_level}">
+        <option th:each="level : ${T(vn.edu.iuh.fit.www_doanhoaian_week05.backend.enums.SkillLevel).values()}"
+                th:value="${level}" th:text="${#strings.capitalize(level.name())}">
+        </option>
+    </select><br/>
+    <br/>
+
+    <button type="submit">Add Job Skill</button>
+</form>
+</body>
+</html>
