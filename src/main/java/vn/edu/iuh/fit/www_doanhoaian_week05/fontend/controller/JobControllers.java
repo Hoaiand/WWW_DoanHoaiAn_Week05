@@ -15,6 +15,7 @@ import vn.edu.iuh.fit.www_doanhoaian_week05.backend.services.JobService;
 import vn.edu.iuh.fit.www_doanhoaian_week05.backend.services.JobSkillService;
 import vn.edu.iuh.fit.www_doanhoaian_week05.backend.services.SkillService;
 
+import java.util.Arrays;
 import java.util.List;
 
 @Controller
@@ -42,16 +43,21 @@ public class JobControllers {
     @GetMapping("/add_job")
     public String addJob(Model model) {
         model.addAttribute("job", new Job());
+
         return "job/add-job";
     }
 
 
+
+
     @PostMapping("/add_job")
     public String saveJob(@ModelAttribute Job job) {
+
         jobService.save(job);
 
         return "redirect:/job_list";
     }
+
 
 
     @GetMapping("/job_list/{id}")

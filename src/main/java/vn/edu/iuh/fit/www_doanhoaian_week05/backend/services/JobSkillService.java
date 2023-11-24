@@ -29,7 +29,7 @@ public class JobSkillService {
         jobSkillRepository.save(jobSkill);
     }
 
-    public Optional<Job_skill> findById(Job id){
+    public Optional<Job_skill> findById(Job_skillID id){
         return jobSkillRepository.findById(id);
     }
 }

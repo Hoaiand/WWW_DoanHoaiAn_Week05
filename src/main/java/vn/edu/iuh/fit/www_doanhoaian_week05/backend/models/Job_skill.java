@@ -23,8 +23,12 @@ public class Job_skill {
     @ManyToOne
     @JoinColumn(name = "skill_id")
     private Skill skill;
+
+
     @Column(name = "more_infos",length = 1000, nullable = false)
     private String more_info;
+
+
     @Enumerated(EnumType.ORDINAL)
     @Column(name = "skill_level", nullable = false)
     private SkillLevel skill_level;

@@ -1,37 +1,54 @@
-<!-- src/main/resources/templates/addJobSkillForm.html -->
-
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Add Job Skill</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Tuyển Dụng - Thêm Kỹ Năng cho Công Việc</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-<h2>Add Job Skill</h2>
 
-<form th:action="@{/jobSkills/add}" th:object="${jobSkill}" method="post">
-    <label for="job">Job:</label>
-    <select th:field="*{job.id}">
-        <option th:each="job : ${jobs}" th:value="${job.id}" th:text="${job.name}"></option>
-    </select><br/>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Công Ty ABC</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <!-- Add your navigation links here -->
+        </ul>
+    </div>
+</nav>
 
-    <label for="skill">Skill:</label>
-    <select th:field="*{skill.id}">
-        <option th:each="skill : ${skills}" th:value="${skill.id}" th:text="${skill.name}"></option>
-    </select><br/>
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <h1>Thêm Kỹ Năng cho Công Việc</h1>
+            <form th:action="@{/add-jobskill}" method="post">
+                <div class="form-group">
+                    <label for="moreInfo">Thông Tin Thêm</label>
+                    <textarea class="form-control" id="moreInfo" name="more_info" rows="3" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="skillLevel">Cấp Độ Kỹ Năng</label>
+                    <select class="form-control" id="skillLevel" name="skill_level" required>
+                        <option value="MASTER">Master</option>
+                        <option value="PROFESSIONAL">Professional</option>
+                        <option value="ADVANCED">Advanced</option>
+                        <option value="INTERMEDIATE">Intermediate</option>
+                        <option value="BEGINNER">Beginner</option>
+                    </select>
+                </div>
+                <!-- You can include hidden input fields for other information if needed -->
+                <input type="hidden" id="jobId" name="jobId" value="123"> <!-- Replace 123 with the actual job ID -->
+                <button type="submit" class="btn btn-primary">Thêm Kỹ Năng</button>
+            </form>
+        </div>
+    </div>
+</div>
 
-    <label for="moreInfo">More Info:</label>
-    <input type="text" th:field="*{more_info}" /><br/>
-
-    <label for="skillLevel">Skill Level:</label>
-    <select th:field="*{skill_level}">
-        <option th:each="level : ${T(vn.edu.iuh.fit.www_doanhoaian_week05.backend.enums.SkillLevel).values()}"
-                th:value="${level}" th:text="${#strings.capitalize(level.name())}">
-        </option>
-    </select><br/>
-    <br/>
-
-    <button type="submit">Add Job Skill</button>
-</form>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

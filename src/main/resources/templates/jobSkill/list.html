@@ -1,31 +1,58 @@
-<!-- src/main/resources/templates/jobSkillList.html -->
-
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Job Skill List</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Tuyển Dụng - Job Skill</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-<h2>Job Skill List</h2>
 
-<table border="1">
-    <thead>
-    <tr>
-        <th>Job</th>
-        <th>Skill</th>
-        <th>More Info</th>
-        <th>Skill Level</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="jobSkill : ${jobSkills}">
-        <td th:text="${jobSkill.job.name}"></td>
-        <td th:text="${jobSkill.skill.name}"></td>
-        <td th:text="${jobSkill.more_info}"></td>
-        <td th:text="${#strings.capitalize(jobSkill.skill_level.name())}"></td>
-    </tr>
-    </tbody>
-</table>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Công Ty ABC</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <!-- Add your navigation links here -->
+        </ul>
+    </div>
+</nav>
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Danh Sách Kỹ Năng</h1>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Thông  tin thêm</th>
+                    <th scope="col">Level</th>
+
+                </tr>
+                </thead>
+                <tbody>
+                <!-- Iterate over the skills and display them in a table -->
+                <tr th:each="l, iterStat : ${list}">
+                    <th scope="row" th:text="${iterStat.count}"></th>
+                    <td th:text="${l.more_info}"></td>
+                    <td th:text="${l.skill_level}"></td>
+
+                </tr>
+                </tbody>
+            </table>
+
+            <!-- Add Skill button -->
+            <a class="btn btn-primary" th:href="@{/add-jobskill}">Level</a>
+            <a class="btn btn-primary" th:href="@{/home}">home</a>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
