@@ -9,8 +9,22 @@
    
    ![image](https://github.com/Hoaiand/WWW_DoanHoaiAn_Week05/assets/127822828/9ad1272e-30ab-4225-a588-e1d4f84dbedd)
 
-7. Tạo các trang web cho phép công ty đăng tin tuyển người với các skill mong muốn
-8. Các ứng viên khi log vào sẽ được gợi ý các công việc có skill phù hợp với mình
-9. Giúp các công ty tìm các ứng viên có skill phù hợp rồi gửi mail mời.
-10. Đề xuất một số skill mà ứng viên chưa có để học.
-11. Và các yêu cầu khác
+List danh sách các job
+![image](https://github.com/Hoaiand/WWW_DoanHoaiAn_Week05/assets/127822828/fd9e4740-85cc-452b-9db2-ac865bd51340)
+
+
+chi tiết job
+![image](https://github.com/Hoaiand/WWW_DoanHoaiAn_Week05/assets/127822828/0943df06-348b-478c-a6d2-f74a80532b6e)
+
+
+add candidate
+![image](https://github.com/Hoaiand/WWW_DoanHoaiAn_Week05/assets/127822828/c102dcae-bd18-4036-a87a-d54627bf667b)
+
+List candidate
+![image](https://github.com/Hoaiand/WWW_DoanHoaiAn_Week05/assets/127822828/8370314b-7bde-4d70-8940-990ec5d688f0)
+
+chi tiết candidate
+![image](https://github.com/Hoaiand/WWW_DoanHoaiAn_Week05/assets/127822828/36794fc1-2e7f-4e34-9a4e-d4391634b5d6)
+
+
+
