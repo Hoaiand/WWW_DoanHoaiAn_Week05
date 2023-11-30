@@ -28,6 +28,13 @@
             <li><strong>Country:</strong> <span th:text="${candidate.address.country}"></span></li>
         </ul>
 
+        <h2>Skill</h2>
+        <ul th:each="skill :${skills}">
+            <li><strong>Skill Name:</strong> <span th:text="${skill.name}"></span></li>
+            <li><strong>Skill Description:</strong> <span th:text="${skill.desc}"></span></li>
+            <li><strong>Type:</strong> <span th:text="${skill.type}"></span></li>
+        </ul>
+
         <a class="btn btn-primary" th:href="@{/candidate_list}">Return</a>
 
         <a class="btn btn-primary" th:href="@{/candidate_list}">Add Skill</a>

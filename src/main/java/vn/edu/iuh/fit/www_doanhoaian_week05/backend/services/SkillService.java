@@ -7,6 +7,7 @@ import vn.edu.iuh.fit.www_doanhoaian_week05.backend.reponsitories.SkillRepositor
 
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class SkillService {
@@ -17,8 +18,8 @@ public class SkillService {
         return skillRepository.findAll();
     }
 
-    public Skill getById(Long id){
-        return skillRepository.getById(id);
+    public Optional<Skill> getById(Long id){
+        return skillRepository.findById(id);
     }
 
     public void saveSkill(Skill skill){

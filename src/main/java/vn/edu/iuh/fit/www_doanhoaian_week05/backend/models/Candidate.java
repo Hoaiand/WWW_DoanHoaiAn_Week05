@@ -31,8 +31,7 @@ public class Candidate {
     @ManyToOne
     @JoinColumn(name = "address")
     private Address address;
-    @OneToMany(mappedBy = "candidate")
-    private List<Experience> experiences;
+
     @OneToMany(mappedBy = "candidate")
     private List<Candidate_skill> candidateSkills;
     public Candidate(LocalDate dob, String email, String full_name, String phone, Address address) {

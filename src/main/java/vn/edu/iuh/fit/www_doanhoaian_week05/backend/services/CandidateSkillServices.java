@@ -10,4 +10,6 @@ public class CandidateSkillServices {
     private Candidate_skillRepository candidateSkillRepository;
 
 
+
+
 }

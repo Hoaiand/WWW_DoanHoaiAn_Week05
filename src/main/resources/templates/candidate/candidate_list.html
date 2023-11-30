@@ -42,6 +42,39 @@
     </ul>
 
     <button type="button" class="btn btn-success"><a class="text-white" th:href="@{/add_candidate}">Thêm Ứng Cử Viên</a></button>
+
+
+    <h1>Kết quả tìm kiếm ứng viên theo kỹ năng</h1>
+
+    <form method="get" th:action="@{/search}">
+        <label>Chọn kỹ năng: </label>
+        <select name="skillId">
+            <option value="">--- Chọn kỹ năng ---</option>
+            <option th:each="skill : ${skill}"
+                    th:value="${skill.type}"
+                    th:text="${skill.name}">
+            </option>
+        </select>
+        <button type="submit">Tìm kiếm</button>
+    </form>
+
+    <table>
+        <tr>
+            <th>Họ tên</th>
+            <th>Email</th>
+            <th>SĐT</th>
+        </tr>
+
+        <tr th:each="candidate : ${candidates}">
+            <td th:text="${candidate.full_name}">Nguyen Van A</td>
+            <td th:text="${candidate.email}">a@example.com</td>
+            <td th:text="${candidate.phone}">0123456789</td>
+        </tr>
+    </table>
+
+
+
+
 </div>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

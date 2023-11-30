@@ -1,13 +1,11 @@
 package vn.edu.iuh.fit.www_doanhoaian_week05.backend.enums;
 
 public enum SkillType {
-    Soft_Skills(0),
+    UNSPECIFIC(0),
 
-    Technical_Skills(1),
+    TECHNICAL_SKILL(1),
 
-    Management_Skills(2),
-
-    Analytical_Skills (3);
+    SOFT_SKILL(2);
 
     private int value;
 

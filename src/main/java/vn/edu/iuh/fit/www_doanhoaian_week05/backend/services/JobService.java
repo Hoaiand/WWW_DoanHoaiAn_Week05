@@ -2,10 +2,12 @@ package vn.edu.iuh.fit.www_doanhoaian_week05.backend.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
 
 import vn.edu.iuh.fit.www_doanhoaian_week05.backend.models.Company;
 import vn.edu.iuh.fit.www_doanhoaian_week05.backend.models.Job;
+import vn.edu.iuh.fit.www_doanhoaian_week05.backend.models.Skill;
 import vn.edu.iuh.fit.www_doanhoaian_week05.backend.reponsitories.JobRepository;
 
 import java.util.List;
@@ -29,6 +31,10 @@ public class JobService {
 
     public Optional<Job> findById(long id) {
         return jobRepository.findById(id);
+    }
+
+    public List<Skill> findSkillsByJobId (@Param("jobId") Long jobId){
+        return jobRepository.findSkillsByJobId(jobId);
     }
 
 }

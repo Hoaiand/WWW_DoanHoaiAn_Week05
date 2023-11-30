@@ -34,18 +34,22 @@
         </ul>
     </div>
 </nav>
-
 <div class="container mt-4">
     <h1>Tin Tuyển Dụng</h1>
     <div class="row">
         <div class="col-md-8">
-            <ul th:each="job : ${jobs}">
-                <li><a th:text="${job.name}" th:href="@{/job_list/{id}(id=${job.id})}"></a></li>
-            </ul>
+            <div th:each="job : ${jobs}" class="mb-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Name: <a th:text="${job.name}"></a></h4>
+                        <p class="card-text">Description: <span th:text="${job.desc}"></span></p>
+                        <button type="button" class="btn btn-success"><a class="text-white" th:href="@{/job_list/{id}(id=${job.id})}">Chi Tiết</a></button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
-
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

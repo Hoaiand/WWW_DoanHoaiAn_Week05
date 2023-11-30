@@ -2,8 +2,10 @@ package vn.edu.iuh.fit.www_doanhoaian_week05.backend.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.*;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
 import vn.edu.iuh.fit.www_doanhoaian_week05.backend.models.Candidate;
+import vn.edu.iuh.fit.www_doanhoaian_week05.backend.models.Skill;
 import vn.edu.iuh.fit.www_doanhoaian_week05.backend.reponsitories.CandidateRepository;
 
 
@@ -51,6 +53,14 @@ public class CandidateService {
 
     public Optional<Candidate> findById(long id){
         return  candidateRepository.findById(id);
+    }
+
+    public List<Candidate> findCandidatesBySkill(@Param("skill") Long skill){
+        return  candidateRepository.findCandidatesBySkill(skill);
+    }
+
+    public  List<Skill> findSkillsByCandidateID(@Param("candidateID") Long candidateID){
+        return  candidateRepository.findSkillsByCandidateID(candidateID);
     }
 
 }

@@ -1,13 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Candidates with Technical Skills</title>
 </head>
 <body>
- <ul th:each="js : ${jobSkill}">
-     <li><a th:text="js.more_info"></a></li>
-     <li><a th:text="js.skill_level"></a></li>
- </ul>
+
+<h1>Candidates with Technical Skills</h1>
+
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Skills</th>
+    </tr>
+
+    <!-- loop through the candidates -->
+    <tr th:each="candidate : ${candidates}">
+        <td th:text="${candidate.fullName}">Candidate Name</td>
+
+        <td>
+            <!-- loop through the skills -->
+            <span th:each="skill : ${candidate.skills}"
+                  th:text="${skill.name} + ' '"></span>
+        </td>
+    </tr>
+</table>
+
 </body>
 </html>

@@ -6,10 +6,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import vn.edu.iuh.fit.www_doanhoaian_week05.backend.models.Address;
 import vn.edu.iuh.fit.www_doanhoaian_week05.backend.models.Candidate;
+import vn.edu.iuh.fit.www_doanhoaian_week05.backend.models.Skill;
 import vn.edu.iuh.fit.www_doanhoaian_week05.backend.services.AddressService;
 import vn.edu.iuh.fit.www_doanhoaian_week05.backend.services.CandidateService;
+import vn.edu.iuh.fit.www_doanhoaian_week05.backend.services.SkillService;
 
 
+import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -20,6 +23,9 @@ public class CandidateController {
 
     @Autowired
     private AddressService addressService;
+
+    @Autowired
+    private SkillService skillService;
 
 
     @GetMapping("/home")
@@ -67,9 +73,20 @@ public class CandidateController {
     @GetMapping("/{id}")
     public String getCandidateDetails(@PathVariable Long id, Model model) {
         Candidate candidate = candidateServices.findById(id).orElse(null);
+        List<Skill> skills = candidateServices.findSkillsByCandidateID(id);
         model.addAttribute("candidate", candidate);
+        model.addAttribute("skills",skills);
         return "candidate/candidate_details";
     }
 
+
+    @GetMapping("/search")
+    public String searchBySkill(Model model, @RequestParam Long skillId) {
+        Optional<Skill> skill = skillService.getById(skillId);
+        List<Candidate> candidates = candidateServices.findCandidatesBySkill(skillId);
+        model.addAttribute("candidates", candidates);
+        return "candidate/candidate_list";
+
+    }
 
 }

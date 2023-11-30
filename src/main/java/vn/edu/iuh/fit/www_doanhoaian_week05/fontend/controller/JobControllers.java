@@ -42,6 +42,7 @@ public class JobControllers {
 
     @GetMapping("/add_job")
     public String addJob(Model model) {
+
         model.addAttribute("job", new Job());
 
         return "job/add-job";
@@ -62,9 +63,11 @@ public class JobControllers {
 
     @GetMapping("/job_list/{id}")
     public String getJobdetails(@PathVariable Long id,Model model){
-       Job job = jobService.findById(id).orElse(null);
+        List<Skill> skills = jobService.findSkillsByJobId(id);
+        Job job = jobService.findById(id).orElse(null);
         model.addAttribute("job",job);
-       return "job/job-details";
+        model.addAttribute("skills", skills);
+        return "job/job-details";
     }
 
 
