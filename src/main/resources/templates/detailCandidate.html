@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body  align="center">
+<h1>Details Candidate</h1>
+<table  align="center" border="1px">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="list : ${candidate}">
+
+      <td th:text="${list.id}"></td>
+        <td th:text="${list.full_name}"></td>
+        <td th:text="${list.email}"></td>
+        <td th:text="${list.phone}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

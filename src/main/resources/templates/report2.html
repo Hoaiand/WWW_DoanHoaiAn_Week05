@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Danh sách ứng viên</title>
+</head>
+
+<body>
+
+<h1>Danh sách ứng viên kinh nghiệm trên 5 năm</h1>
+
+<table>
+    <thead>
+    <tr>
+        <th>Họ tên</th>
+        <th>Email</th>
+        <th>Số điện thoại</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="candidate : ${candidates}">
+        <td th:text="${candidate.full_name}"></td>
+        <td th:text="${candidate.email}"></td>
+        <td th:text="${candidate.phone}"></td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+
+</html>

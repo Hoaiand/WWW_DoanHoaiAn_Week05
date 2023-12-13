@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+<table>
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="candidates: ${candidate}">
+    <td th:text="${candidates.id}"></td>
+    <td th:text="${candidates.full_name}"></td>
+    <td th:text="${candidates.email}"></td>
+    <td>
+      <a th:href="@{/moreinfor/{id} (id = ${candidates.id}) }">View</a>
+    </td>
+  </tr>
+  </tbody>
+</table>
+</body>
+</html>
